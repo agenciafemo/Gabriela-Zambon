@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consulta especializada em Olho Seco em Criciúma/SC com a Dra. Gabriela Zambon, oftalmologista. Diagnóstico individualizado para recuperar seu conforto visual." />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Olho Seco em Criciúma | Dra. Gabriela Zambon, Oftalmologista</title>
+
+  <link rel="icon" type="image/png" href="OLHO.png" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@mux/mux-player@3/dist/mux-player.mjs"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ══════════════════════════════════════════════
+       TOKENS — paleta clara, teal como identidade
+       ══════════════════════════════════════════════ */
+    :root {
+      /* Escuros (agora são teal-profundo, não preto) */
+      --dk:       #09293A;   /* trust bar, footer */
+      --dk-mid:   #0D3A4D;   /* header sticky, CTA final */
+      --dk-hero:  #0F4055;   /* nunca usado no fundo — só em textos/ícones escuros */
+
+      /* Paleta de cor */
+      --blue:     #4B8FA4;
+      --teal:     #3DAEBB;
+      --teal-mid: #2E98AA;
+      --teal-lt:  #72CDD9;
+      --teal-xs:  #B6E8EE;
+      --teal-bg:  #E8F7FA;   /* fundo de seções alternadas */
+
+      /* Texto */
+      --text:     #1A3A48;
+      --muted:    #4D7585;
+      --on-dark:  rgba(255,255,255,.72);
+
+      /* Superfícies */
+      --white:    #FFFFFF;
+      --bg:       #F2FBFD;   /* fundo base da página */
+      --border:   #BADDE6;
+
+      /* Gradientes */
+      --g-iris:   linear-gradient(135deg, #3DAEBB 0%, #4B8FA4 100%);
+      --g-hero:   linear-gradient(150deg, #F4FBFD 0%, #DFF2F7 55%, #C8EAEF 100%);
+      --g-dark:   linear-gradient(150deg, #0D3A4D 0%, #082030 100%);
+
+      --f-h: 'Montserrat', sans-serif;
+      --f-b: 'Inter', sans-serif;
+      --r:   16px;
+      --rb:  50px;
+      --t:   .3s ease;
+      --sh:  0 2px 24px rgba(26,58,72,.07);
+      --shh: 0 8px 40px rgba(26,58,72,.14);
+    }
+
+    /* ══════════════════════════════════════════════
+       RESET
+       ══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-b);
+      font-size: 1rem;
+      line-height: 1.72;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    img  { max-width: 100%; display: block; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+    address { font-style: normal; }
+
+    /* ══════════════════════════════════════════════
+       LAYOUT
+       ══════════════════════════════════════════════ */
+    .wrap  { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .wrap--n { max-width: 820px; }
+    .sec   { padding: 88px 0; }
+    @media (max-width: 768px) { .sec { padding: 60px 0; } }
+
+    /* ══════════════════════════════════════════════
+       FADE-IN (sem biblioteca)
+       ══════════════════════════════════════════════ */
+    .fi { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fi.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: .10s; }
+    .d2 { transition-delay: .20s; }
+    .d3 { transition-delay: .30s; }
+    .d4 { transition-delay: .40s; }
+
+    /* ══════════════════════════════════════════════
+       BOTÕES
+       ══════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px; border: none; cursor: pointer;
+      font-family: var(--f-h); font-weight: 700; font-size: 1rem;
+      letter-spacing: .025em; line-height: 1.3; text-align: center;
+      border-radius: var(--rb); padding: 18px 38px;
+      transition: all var(--t);
+    }
+    .btn--iris {
+      background: var(--g-iris); color: #fff;
+      box-shadow: 0 4px 22px rgba(61,174,187,.32);
+    }
+    .btn--iris:hover, .btn--iris:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 34px rgba(61,174,187,.46);
+      filter: brightness(1.06);
+    }
+    .btn--iris:active { transform: none; }
+    .btn--ghost {
+      background: transparent;
+      border: 1.5px solid rgba(61,174,187,.55);
+      color: var(--teal);
+    }
+    .btn--ghost:hover { background: rgba(61,174,187,.1); border-color: var(--teal); transform: translateY(-1px); }
+    .btn--lg { padding: 22px 52px; font-size: 1.1rem; }
+    .btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+    .ico { flex-shrink: 0; width: 22px; height: 22px; }
+    @media (max-width: 480px) { .btn--lg { padding: 18px 28px; font-size: 1rem; width: 100%; } }
+
+    /* ══════════════════════════════════════════════
+       TIPOGRAFIA DE SEÇÃO
+       ══════════════════════════════════════════════ */
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--f-h); font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .tag svg { width: 16px; height: 9px; }
+
+    .sec-h {
+      font-family: var(--f-h);
+      font-size: clamp(1.65rem, 3.6vw, 2.45rem);
+      font-weight: 700; line-height: 1.22;
+      color: var(--text); margin-bottom: 18px;
+    }
+    .sec-h--white { color: #fff; }
+    .sec-lead { font-size: 1.08rem; color: var(--muted); max-width: 620px; }
+
+    /* ══════════════════════════════════════════════
+       TRUST BAR
+       ══════════════════════════════════════════════ */
+    .trust-bar {
+      background: var(--dk);
+      padding: 9px 0; text-align: center;
+    }
+    .trust-bar p {
+      font-family: var(--f-h); font-size: .7rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .trust-bar span { color: var(--teal-lt); }
+
+    /* ══════════════════════════════════════════════
+       HEADER FIXO
+       ══════════════════════════════════════════════ */
+    .site-header {
+      background: var(--dk-mid);
+      border-bottom: 1px solid rgba(61,174,187,.12);
+      position: sticky; top: 0; z-index: 200;
+      padding: 14px 0;
+      transition: box-shadow var(--t);
+    }
+    .site-header.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,.3); }
+    .hd-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .hd-logo img { height: 40px; width: auto; filter: brightness(0) invert(1); opacity: .88; }
+    .hd-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: var(--rb);
+      background: var(--g-iris); color: #fff;
+      font-family: var(--f-h); font-size: .82rem; font-weight: 700;
+      letter-spacing: .03em; white-space: nowrap;
+      transition: all var(--t);
+    }
+    .hd-cta:hover { filter: brightness(1.1); box-shadow: 0 4px 18px rgba(61,174,187,.38); }
+    .hd-cta:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+    .hd-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+    @media (max-width: 440px) { .hd-cta-t { display: none; } .hd-cta { padding: 11px 13px; border-radius: 50%; } }
+
+    /* ══════════════════════════════════════════════
+       HERO — fundo claro, olho decorativo
+       ══════════════════════════════════════════════ */
+    .hero {
+      background: var(--g-hero);
+      position: relative; overflow: hidden;
+      padding: 88px 0 96px;
+    }
+
+    /* Olho grande — lado direito */
+    .hero-eye {
+      position: absolute;
+      right: -60px; top: 50%;
+      transform: translateY(-50%);
+      width: 580px; height: auto;
+      pointer-events: none;
+      opacity: .55;
+    }
+    @media (max-width: 900px) { .hero-eye { width: 380px; right: -160px; opacity: .28; } }
+    @media (max-width: 560px) { .hero-eye { display: none; } }
+
+    /* Olho grande — lado esquerdo (espelhado) */
+    .hero-eye--left {
+      right: auto;
+      left: -60px;
+      transform: translateY(-50%) scaleX(-1);
+    }
+    @media (max-width: 900px) { .hero-eye--left { left: -160px; } }
+    @media (max-width: 560px) { .hero-eye--left { display: none; } }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 820px; margin: 0 auto; text-align: center;
+    }
+
+    .hero-super {
+      display: inline-block;
+      font-family: var(--f-h); font-size: clamp(.88rem, 1.8vw, 1rem);
+      font-weight: 600; letter-spacing: .04em;
+      color: var(--teal-mid); margin-bottom: 18px;
+    }
+    .hero-h1 {
+      font-family: var(--f-h);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 800; line-height: 1.22;
+      color: var(--text); letter-spacing: -.015em;
+      margin-bottom: 22px;
+    }
+    .hero-h1 span { display: block; }
+    .hero-h1 em { font-style: normal; color: var(--teal-mid); }
+    .hero-sub {
+      font-size: clamp(.98rem, 2vw, 1.18rem);
+      color: var(--muted); max-width: 680px;
+      margin: 0 auto 46px; line-height: 1.72;
+    }
+
+    /* Vídeo placeholder */
+    .video-wrap { max-width: 700px; margin: 0 auto 46px; }
+    .video-box {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      background: var(--dk-mid);
+      border-radius: 18px; border: 1px solid rgba(61,174,187,.3);
+      overflow: hidden; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px;
+      cursor: pointer; transition: border-color var(--t), box-shadow var(--t);
+    }
+    .video-box:hover {
+      border-color: var(--teal);
+      box-shadow: 0 0 40px rgba(61,174,187,.18);
+    }
+    .vb-iris-bg { /* anéis íris de fundo dentro do placeholder */
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; opacity: .15;
+    }
+    .vb-iris-bg svg { width: 240px; height: 240px; }
+    .vb-play {
+      position: relative; z-index: 2;
+      width: 76px; height: 76px; border-radius: 50%;
+      background: var(--g-iris); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 14px rgba(61,174,187,.12), 0 0 0 28px rgba(61,174,187,.06);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .video-box:hover .vb-play {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 18px rgba(61,174,187,.18), 0 0 0 36px rgba(61,174,187,.08);
+    }
+    .vb-play svg { width: 28px; height: 28px; margin-left: 4px; color: #fff; }
+    .vb-texts { position: relative; z-index: 2; text-align: center; }
+    .vb-title { font-family: var(--f-h); font-size: .9rem; font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .03em; }
+    .vb-sub   { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 4px; }
+
+    /* CTA do hero */
+    .hero-cta-block { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .hero-cta-note  { font-size: .84rem; color: var(--muted); font-style: italic; }
+
+    /* ══════════════════════════════════════════════
+       SEÇÃO 2 — DOR (branco)
+       ══════════════════════════════════════════════ */
+    .sec--dor { background: var(--white); }
+
+    /* Bloco A — texto centralizado */
+    .dor-bloco {
+      max-width: 720px; margin: 0 auto 56px;
+    }
+    .dor-bloco p { color: var(--muted); font-size: 1.04rem; margin-bottom: 18px; }
+    .dor-bloco p:last-child { margin-bottom: 0; }
+    .dor-callout {
+      font-family: var(--f-h);
+      font-weight: 700; font-size: 1.06rem;
+      color: var(--dk-mid);
+      padding: 18px 22px; margin: 22px 0;
+      border-left: 3px solid var(--teal);
+      background: var(--teal-bg);
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* Bloco B — título de transição */
+    .dor-trans { text-align: center; margin-bottom: 44px; }
+    .dor-trans-h {
+      font-family: var(--f-h);
+      font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+      font-weight: 700; color: var(--text); margin-bottom: 10px;
+    }
+    .dor-trans-sub { font-size: .97rem; color: var(--muted); }
+
+    /* Bloco C — carrossel */
+    .sint-carousel-wrap { position: relative; padding: 0 52px; }
+    @media (max-width: 640px) { .sint-carousel-wrap { padding: 0; } }
+
+    .sint-viewport { overflow: hidden; }
+
+    .sint-track { display: flex; will-change: transform; }
+
+    /* Item externo do carrossel (controla largura via JS) */
+    .sint-card { flex-shrink: 0; padding: 0 8px; box-sizing: border-box; }
+
+    /* Cartão visual */
+    .sint-card-inner {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--r); box-shadow: var(--sh);
+      padding: 28px 22px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: box-shadow var(--t), transform var(--t);
+      height: 100%;
+    }
+    .sint-card-inner:hover { box-shadow: var(--shh); transform: translateY(-3px); }
+
+    /* Ícone íris como marcador */
+    .sint-card-dot {
+      flex-shrink: 0; margin-top: 3px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background:
+        radial-gradient(circle at center,
+          #1A3A48 0%, #1A3A48 20%,
+          var(--teal) 21%, var(--teal) 40%,
+          var(--blue) 41%, var(--blue) 58%,
+          rgba(75,143,164,.18) 59%, transparent 100%
+        );
+      box-shadow: 0 0 0 5px rgba(61,174,187,.1), 0 0 0 10px rgba(61,174,187,.05);
+    }
+    .sint-card-text { font-size: 1rem; color: var(--text); line-height: 1.65; font-weight: 500; }
+
+    /* Dots de navegação */
+    .sint-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+    .sint-dot-btn {
+      width: 10px; height: 10px; border-radius: 50%;
+      border: none; cursor: pointer; padding: 0;
+      background: var(--border);
+      transition: background var(--t), transform var(--t);
+    }
+    .sint-dot-btn.active { background: var(--teal); transform: scale(1.35); }
+
+    /* Setas */
+    .sint-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid var(--border); background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text);
+      box-shadow: var(--sh); transition: all var(--t); z-index: 2;
+    }
+    .sint-arrow:hover { border-color: var(--teal); color: var(--teal); box-shadow: var(--shh); }
+    .sint-arrow--prev { left: 0; }
+    .sint-arrow--next { right: 0; }
+    @media (max-width: 640px) { .sint-arrow { display: none; } }
+
+    /* ══════════════════════════════════════════════
+       SEÇÃO 3 — ABORDAGEM (teal-bg)
+       ══════════════════════════════════════════════ */
+    .sec--abord { background: var(--teal-bg); }
+    .abord-head { text-align: center; margin-bottom: 56px; }
+    .abord-head .sec-lead { margin: 0 auto; }
+
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 26px; margin-bottom: 52px;
+    }
+    @media (max-width: 860px) {
+      .cards-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+    }
+
+    .b-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      /* faixa teal no topo */
+      border-top: 3px solid var(--teal);
+      padding: 36px 26px 32px;
+      box-shadow: var(--sh);
+      text-align: center;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .b-card:hover { transform: translateY(-5px); box-shadow: var(--shh); }
+
+    /* Ícone íris — versão colorida clara */
+    .b-card-ico {
+      width: 68px; height: 68px; border-radius: 50%;
+      margin: 0 auto 24px;
+      background:
+        radial-gradient(circle at center,
+          #1A3A48 0%,  #1A3A48 20%,
+          var(--teal)  21%, var(--teal)  40%,
+          var(--blue)  41%, var(--blue)  58%,
+          rgba(75,143,164,.18) 59%, transparent 100%
+        );
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 6px rgba(61,174,187,.12), 0 0 0 12px rgba(61,174,187,.06);
+    }
+    .b-card-ico svg { width: 24px; height: 24px; color: rgba(255,255,255,.92); z-index: 1; position: relative; }
+
+    .b-card-h { font-family: var(--f-h); font-size: 1.04rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .b-card-p { font-size: .95rem; color: var(--muted); line-height: 1.72; }
+    .abord-cta { text-align: center; }
+
+    /* ══════════════════════════════════════════════
+       SEÇÃO 4 — AUTORIDADE (branco)
+       ══════════════════════════════════════════════ */
+    .sec--aut { background: var(--white); }
+    .aut-grid {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 68px; align-items: center;
+    }
+    @media (max-width: 768px) { .aut-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Foto placeholder elegante */
+    .foto-ph {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 4/5; max-width: 360px;
+      background: linear-gradient(150deg, #1A4A5C 0%, #0D2D3A 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    @media (max-width: 768px) { .foto-ph { max-width: 260px; margin: 0 auto; aspect-ratio: 3/4; } }
+
+    /* Olho decorativo dentro do placeholder de foto */
+    .foto-eye {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      width: 82%; height: auto;
+      pointer-events: none; opacity: .4;
+    }
+    .foto-silhueta {
+      position: absolute; bottom: 0; left: 50%;
+      transform: translateX(-50%); width: 62%; opacity: .18;
+    }
+    .foto-label {
+      position: relative; z-index: 2; width: 100%;
+      padding: 18px 16px 16px;
+      background: linear-gradient(to top, rgba(9,41,58,.96) 0%, transparent 100%);
+      text-align: center;
+    }
+    .foto-label p {
+      font-family: var(--f-h); font-size: .72rem; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+    }
+
+    .aut-nome {
+      font-family: var(--f-h);
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 800; color: var(--text);
+      letter-spacing: -.01em; margin-bottom: 4px;
+    }
+    .aut-esp {
+      font-family: var(--f-h); font-size: .86rem; font-weight: 600;
+      color: var(--teal); letter-spacing: .1em;
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    .aut-bio {
+      font-size: 1.02rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 28px;
+    }
+    .aut-creds { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cred {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 50px;
+      border: 1px solid var(--border);
+      background: var(--teal-bg);
+      font-family: var(--f-h); font-size: .82rem;
+      font-weight: 600; color: var(--text); letter-spacing: .03em;
+    }
+    .cred-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--g-iris); flex-shrink: 0;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       CTA FINAL (teal escuro)
+       ══════════════════════════════════════════════ */
+    .sec--cta {
+      background: var(--g-dark);
+      position: relative; overflow: hidden;
+      padding: 100px 0;
+    }
+    /* Olho grande no fundo do CTA */
+    .cta-eye-bg {
+      position: absolute; left: -120px; bottom: -120px;
+      width: 560px; height: auto;
+      pointer-events: none; opacity: .25;
+    }
+    @media (max-width: 768px) { .cta-eye-bg { display: none; } .sec--cta { padding: 72px 0; } }
+
+    .cta-inner {
+      position: relative; z-index: 1;
+      text-align: center; max-width: 680px; margin: 0 auto;
+    }
+    .cta-h {
+      font-family: var(--f-h);
+      font-size: clamp(1.75rem, 4vw, 2.85rem);
+      font-weight: 800; color: #fff; line-height: 1.18;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 1.06rem; color: var(--on-dark);
+      margin: 0 auto 44px; max-width: 520px;
+    }
+    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .cta-note  { font-size: .83rem; color: rgba(255,255,255,.35); font-style: italic; }
+
+    /* ══════════════════════════════════════════════
+       RODAPÉ
+       ══════════════════════════════════════════════ */
+    .rodape {
+      background: var(--dk);
+      border-top: 1px solid rgba(61,174,187,.1);
+      padding: 56px 0 32px;
+    }
+    .rod-grid {
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 52px; margin-bottom: 44px;
+    }
+    @media (max-width: 860px) { .rod-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .rod-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+    .rod-logo img {
+      height: 36px; width: auto;
+      margin-bottom: 14px;
+      filter: brightness(0) invert(1); opacity: .6;
+    }
+    .rod-tagline { font-size: .84rem; color: rgba(255,255,255,.35); line-height: 1.65; }
+    .rod-col-h {
+      font-family: var(--f-h); font-size: .7rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: var(--teal-lt); margin-bottom: 14px;
+    }
+    .rod-txt  { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.72; }
+    .rod-cred {
+      font-family: var(--f-h); font-size: .84rem; font-weight: 600;
+      color: rgba(255,255,255,.62); line-height: 2.1;
+    }
+    .rod-cred span { font-weight: 400; color: rgba(255,255,255,.38); }
+    .rod-cta-wrap { margin-top: 18px; }
+    .rod-div { height: 1px; background: rgba(255,255,255,.06); margin-bottom: 24px; }
+    .rod-bottom {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .rod-disc {
+      font-size: .77rem; color: rgba(255,255,255,.25);
+      line-height: 1.65; max-width: 640px;
+    }
+    .rod-copy { font-size: .77rem; color: rgba(255,255,255,.25); white-space: nowrap; }
+
+    /* ══════════════════════════════════════════════
+       ACORDEÃO DE HORÁRIOS
+       ══════════════════════════════════════════════ */
+    .horario-toggle {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--f-b); font-size: .84rem;
+      color: rgba(255,255,255,.55);
+      padding: 0; transition: color .2s;
+    }
+    .horario-toggle:hover { color: var(--teal-lt); }
+    .horario-toggle svg { transition: transform .3s ease; flex-shrink: 0; }
+    .horario-toggle.aberto svg { transform: rotate(180deg); }
+    .horario-toggle.aberto { color: var(--teal-lt); }
+
+    .horario-lista {
+      display: none; margin-top: 10px;
+      border-left: 2px solid rgba(61,174,187,.3);
+      padding-left: 12px;
+    }
+    .horario-lista.aberto { display: block; }
+    .horario-lista table { border-collapse: collapse; width: 100%; }
+    .horario-lista td {
+      font-size: .82rem; color: rgba(255,255,255,.5);
+      padding: 3px 10px 3px 0; vertical-align: top; line-height: 1.5;
+    }
+    .horario-lista td:first-child { white-space: nowrap; color: rgba(255,255,255,.65); font-weight: 500; }
+    .horario-lista .fechado { color: rgba(255,255,255,.28); }
+
+    /* Versão para o CTA (fundo escuro — mesma paleta) */
+    .horario-cta .horario-toggle { color: rgba(255,255,255,.38); font-size: .83rem; font-style: italic; }
+    .horario-cta .horario-toggle:hover { color: rgba(255,255,255,.65); }
+    .horario-cta .horario-toggle.aberto { color: rgba(255,255,255,.65); }
+    .horario-cta .horario-lista td { color: rgba(255,255,255,.4); }
+    .horario-cta .horario-lista td:first-child { color: rgba(255,255,255,.55); }
+
+    /* ══════════════════════════════════════════════
+       BANNER DE COOKIES
+       ══════════════════════════════════════════════ */
+    .cookie-banner {
+      position: fixed; bottom: 24px; left: 24px; z-index: 500;
+      background: var(--dk-mid);
+      border: 1px solid rgba(61,174,187,.22);
+      border-radius: 16px;
+      padding: 20px 22px;
+      max-width: 320px; width: calc(100% - 48px);
+      display: flex; flex-direction: column; gap: 14px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.32);
+    }
+    .cookie-banner.oculto { display: none; }
+    .cookie-txt {
+      font-size: .83rem; color: rgba(255,255,255,.72);
+      line-height: 1.6;
+    }
+    .cookie-txt a { color: var(--teal-lt); text-decoration: underline; cursor: pointer; }
+    .cookie-acoes { display: flex; gap: 10px; }
+    .cookie-btn {
+      flex: 1; padding: 9px 14px; border-radius: 50px; cursor: pointer;
+      font-family: var(--f-h); font-size: .82rem; font-weight: 700;
+      border: none; transition: all .25s; text-align: center;
+    }
+    .cookie-btn--ok {
+      background: var(--g-iris); color: #fff;
+    }
+    .cookie-btn--ok:hover { filter: brightness(1.1); }
+    .cookie-btn--rec {
+      background: transparent; color: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .cookie-btn--rec:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+    /* ══════════════════════════════════════════════
+       MODAL PRIVACIDADE
+       ══════════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 600;
+      background: rgba(9,41,58,.72); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.oculto { display: none; }
+    .modal-box {
+      background: var(--white); border-radius: 20px;
+      max-width: 680px; width: 100%;
+      max-height: 85vh; overflow-y: auto;
+      padding: 44px 40px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.3);
+      position: relative;
+    }
+    @media (max-width: 560px) { .modal-box { padding: 32px 22px; } }
+    .modal-close {
+      position: absolute; top: 18px; right: 18px;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--muted); transition: all .2s;
+    }
+    .modal-close:hover { background: var(--teal-bg); color: var(--teal); border-color: var(--teal); }
+    .modal-h { font-family: var(--f-h); font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .modal-sub { font-size: .84rem; color: var(--muted); margin-bottom: 28px; }
+    .modal-body h3 { font-family: var(--f-h); font-size: 1rem; font-weight: 700; color: var(--text); margin: 22px 0 8px; }
+    .modal-body p, .modal-body li { font-size: .93rem; color: var(--muted); line-height: 1.72; margin-bottom: 8px; }
+    .modal-body ul { padding-left: 18px; margin-bottom: 8px; }
+    .modal-div { height: 1px; background: var(--border); margin: 24px 0; }
+
+    /* ══════════════════════════════════════════════
+       BOTÃO FLUTUANTE WHATSAPP
+       ══════════════════════════════════════════════ */
+    .wa-float {
+      display: flex; position: fixed;
+      bottom: 22px; right: 18px; z-index: 300;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 22px rgba(37,211,102,.42);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37,211,102,.55); }
+    .wa-float svg { width: 32px; height: 32px; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════ BARRA DE CONFIANÇA ════════════ -->
+  <div class="trust-bar">
+    <p>
+      <span>Dra. Gabriela Zambon</span> &nbsp;·&nbsp; Oftalmologista
+      &nbsp;·&nbsp; CRM 24359-SC &nbsp;·&nbsp; RQE 16629
+      &nbsp;·&nbsp; Criciúma / SC
+    </p>
+  </div>
+
+
+  <!-- ════════════ HEADER ════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="wrap">
+      <div class="hd-inner">
+
+        <a href="#hero" class="hd-logo" aria-label="Dra. Gabriela Zambon, página inicial">
+          <img src="LOGO.png" alt="Logotipo Dra. Gabriela Zambon" width="220" height="60" />
+        </a>
+
+        <a href="https://wa.me/5548996197114?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20para%20Olho%20Seco."
+           class="hd-cta" target="_blank" rel="noopener noreferrer"
+           aria-label="Agendar consulta pelo WhatsApp">
+          <!-- ícone WhatsApp -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span class="hd-cta-t">Agendar Consulta</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ════════════ SEÇÃO 1 — HERO ════════════ -->
+    <section class="hero" id="hero" aria-labelledby="hero-h1">
+
+      <!-- OLHO DECORATIVO — lado esquerdo (espelhado, pisca em sincronia) -->
+      <img id="hero-eye-img-left" class="hero-eye hero-eye--left" src="OLHO.png" alt="" aria-hidden="true" />
+      <!-- OLHO DECORATIVO — lado direito (pisca via JS com imagens reais) -->
+      <img id="hero-eye-img" class="hero-eye" src="OLHO.png" alt="" aria-hidden="true" />
+
+      <div class="wrap">
+        <div class="hero-content">
+
+          <span class="hero-super fi">
+            Olhos vermelhos, ardência ou visão embaçada ao longo do dia?
+          </span>
+
+          <h1 class="hero-h1 fi d1" id="hero-h1">
+            <span>Recupere o <em>Conforto Visual</em></span>
+            <span>com Atendimento Especializado</span>
+            <span>em Olho Seco em Criciúma.</span>
+          </h1>
+
+          <p class="hero-sub fi d2">
+            Uma consulta dedicada a investigar a real origem do seu desconforto ocular,
+            não apenas prescrever colírios.
+          </p>
+
+          <!-- Vídeo -->
+          <div class="video-wrap fi d2">
+            <div style="position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:18px; background:#000;">
+              <mux-player
+                id="mux-player"
+                playback-id="tGAML9LVNN01601QkPUi2KtfMEd3dH6QvrQhLkHC6tSNQ"
+                metadata-video-title="Olho Seco — Dra. Gabriela Zambon"
+                muted
+                style="position:absolute; top:-48px; left:0; width:100%; height:calc(100% + 96px);"
+              ></mux-player>
+              <!-- Botão ativar som -->
+              <button id="btn-som" aria-label="Ativar som do vídeo"
+                style="position:absolute; bottom:16px; right:16px; z-index:10;
+                       display:flex; align-items:center; gap:8px;
+                       background:rgba(9,41,58,.82); backdrop-filter:blur(6px);
+                       color:#fff; border:1px solid rgba(61,174,187,.5);
+                       border-radius:50px; padding:9px 18px;
+                       font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
+                       cursor:pointer; transition:background .3s, border-color .3s;">
+                <svg id="btn-som-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+                </svg>
+                <span id="btn-som-txt">Ativar som</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-cta-block fi d3">
+            <a href="https://wa.me/5548996197114?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20para%20Olho%20Seco%20com%20a%20Dra.%20Gabriela."
+               class="btn btn--iris btn--lg" target="_blank" rel="noopener noreferrer"
+               aria-label="Agendar consulta pelo WhatsApp">
+              <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Agendar Consulta Médica pelo WhatsApp
+            </a>
+            <p class="hero-cta-note">Fale com nossa equipe para alinhar seu horário</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════ SEÇÃO 2 — DOR ════════════ -->
+    <section class="sec sec--dor" id="identificacao-dor" aria-labelledby="dor-h2">
+      <div class="wrap">
+
+        <!-- Bloco A: texto de identificação -->
+        <div class="dor-bloco fi">
+          <span class="tag">
+            <svg viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1,8.5 Q16,0 31,8.5 Q16,17 1,8.5 Z" fill="rgba(61,174,187,.15)" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="16" cy="8.5" r="4.5" fill="rgba(61,174,187,.2)" stroke="currentColor" stroke-width="1"/>
+              <circle cx="16" cy="8.5" r="2.2" fill="currentColor" opacity=".7"/>
+            </svg>
+            Você se identifica?
+          </span>
+
+          <h2 class="sec-h" id="dor-h2">
+            O uso constante de colírios lubrificantes já se tornou um hábito que não resolve mais?
+          </h2>
+          <p>
+            Quem convive com a sensação de areia nos olhos, queimação ao final do dia ou
+            visão borrada diante das telas sabe o quanto isso desgasta a produtividade e o bem-estar.
+          </p>
+          <p class="dor-callout">
+            O olho seco é uma disfunção que exige diagnóstico médico.
+          </p>
+          <p>
+            O erro mais comum é acreditar que se trata de um incômodo passageiro que se resolve
+            comprando qualquer lágrima artificial na farmácia.
+          </p>
+          <p>
+            Se a visão está cobrando um preço alto todos os dias, o caminho não é mascarar os
+            sintomas: é investigar o que está acontecendo com a sua saúde ocular.
+          </p>
+        </div>
+
+        <!-- Bloco B: título de transição -->
+        <div class="dor-trans fi d1">
+          <h3 class="dor-trans-h">Você reconhece algum destes sintomas?</h3>
+          <p class="dor-trans-sub">Esses são os sinais mais comuns de olho seco. Muitos pacientes convivem com eles sem saber a causa.</p>
+        </div>
+
+        <!-- Bloco C: carrossel de sintomas -->
+        <div class="sint-carousel-wrap fi d2" aria-label="Sintomas comuns de olho seco">
+
+          <button class="sint-arrow sint-arrow--prev" aria-label="Sintoma anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+
+          <div class="sint-viewport">
+            <div class="sint-track" role="list">
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Sensação de areia ou corpo estranho nos olhos</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Ardência ou queimação, especialmente ao fim do dia</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Olhos vermelhos frequentes sem causa aparente</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Visão embaçada que melhora momentaneamente ao piscar</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Dificuldade prolongada diante de telas (computador, celular)</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Sensibilidade aumentada à luz ou ao ar-condicionado</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Olhos que lacrimejam demais (paradoxalmente, sinal de olho seco)</p>
+                </div>
+              </div>
+              <div class="sint-card" role="listitem">
+                <div class="sint-card-inner">
+                  <span class="sint-card-dot" aria-hidden="true"></span>
+                  <p class="sint-card-text">Dificuldade para usar lentes de contato por longos períodos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="sint-arrow sint-arrow--next" aria-label="Próximo sintoma">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <div class="sint-dots" role="tablist" aria-label="Navegação do carrossel de sintomas"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════ SEÇÃO 3 — ABORDAGEM ════════════ -->
+    <section class="sec sec--abord" id="abordagem-medica" aria-labelledby="abord-h2">
+      <div class="wrap">
+
+        <div class="abord-head fi">
+          <span class="tag">
+            <svg viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M1,8.5 Q16,0 31,8.5 Q16,17 1,8.5 Z" fill="rgba(61,174,187,.15)" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="16" cy="8.5" r="4.5" fill="rgba(61,174,187,.2)" stroke="currentColor" stroke-width="1"/>
+              <circle cx="16" cy="8.5" r="2.2" fill="currentColor" opacity=".7"/>
+            </svg>
+            Como funciona
+          </span>
+          <h2 class="sec-h" id="abord-h2">
+            Um Olhar Atento e Protocolos Sob Medida para Você.
+          </h2>
+          <p class="sec-lead">
+            Cada caso de olho seco tem uma origem diferente. A consulta vai muito além do
+            sintoma, ela investiga o paciente como um todo.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+
+          <div class="b-card fi d1">
+            <div class="b-card-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+              </svg>
+            </div>
+            <h3 class="b-card-h">Investigação Detalhada</h3>
+            <p class="b-card-p">
+              Consulta minuciosa para compreender seus hábitos, rotina, ambiente de trabalho
+              e as particularidades dos seus olhos, informações que fazem toda a diferença
+              no diagnóstico correto.
+            </p>
+          </div>
+
+          <div class="b-card fi d2">
+            <div class="b-card-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+                <line x1="12" y1="22" x2="12" y2="15.5"/>
+                <polyline points="22 8.5 12 15.5 2 8.5"/>
+              </svg>
+            </div>
+            <h3 class="b-card-h">Protocolos Personalizados</h3>
+            <p class="b-card-p">
+              Sem soluções genéricas. O direcionamento terapêutico é desenhado exclusivamente
+              para o seu caso, com foco em alívio duradouro, não apenas no alívio
+              momentâneo dos sintomas.
+            </p>
+          </div>
+
+          <div class="b-card fi d3">
+            <div class="b-card-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="b-card-h">Acompanhamento Dedicado</h3>
+            <p class="b-card-p">
+              O suporte necessário para que você recupere o prazer de ler, trabalhar nas telas
+              e viver a sua rotina sem o peso constante do desconforto visual.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="abord-cta fi">
+          <a href="https://wa.me/5548996197114?text=Olá%2C%20quero%20agendar%20minha%20consulta%20para%20Olho%20Seco%20com%20a%20Dra.%20Gabriela."
+             class="btn btn--iris" target="_blank" rel="noopener noreferrer"
+             aria-label="Agendar consulta pelo WhatsApp">
+            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Quero Agendar Minha Consulta
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════ SEÇÃO 4 — AUTORIDADE ════════════ -->
+    <section class="sec sec--aut" id="sobre-a-medica" aria-labelledby="aut-h2">
+      <div class="wrap">
+        <div class="aut-grid">
+
+          <!-- Foto da Dra. Gabriela Zambon -->
+          <div class="fi">
+            <img src="ZAMBON.jpg" alt="Dra. Gabriela Zambon, oftalmologista especialista em olho seco em Criciúma"
+                 style="border-radius:20px; width:100%; max-width:360px; object-fit:cover; display:block;" />
+          </div>
+
+          <!-- Texto de autoridade -->
+          <div class="fi d1">
+            <span class="tag">
+              <svg viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1,8.5 Q16,0 31,8.5 Q16,17 1,8.5 Z" fill="rgba(61,174,187,.15)" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="16" cy="8.5" r="4.5" fill="rgba(61,174,187,.2)" stroke="currentColor" stroke-width="1"/>
+                <circle cx="16" cy="8.5" r="2.2" fill="currentColor" opacity=".7"/>
+              </svg>
+              Quem conduz a consulta
+            </span>
+
+            <h2 class="aut-nome" id="aut-h2">Dra. Gabriela Zambon</h2>
+            <p class="aut-esp">Oftalmologista · Criciúma / SC</p>
+
+            <p class="aut-bio">
+              Graduada pela Universidade do Extremo Sul Catarinense (UNESC), em Criciúma,
+              a Dra. Gabriela Zambon construiu sua formação em dois dos principais centros
+              de referência em oftalmologia do Sul do Brasil: realizou residência médica em
+              Oftalmologia Geral no Hospital de Clínicas da UFPR (2014–2017) e aprofundou
+              sua formação em Segmento Anterior e Transplante de Córnea no Hospital de
+              Clínicas de Porto Alegre (2017–2018).
+            </p>
+            <p class="aut-bio">
+              Especialista em Oftalmologia pelo Conselho Brasileiro de Oftalmologia, atua
+              com foco em Tratamento do Olho Seco e Cirurgia Refrativa, mantendo-se
+              atualizada por meio de participação regular em eventos e congressos da área.
+              Seu atendimento é conduzido com atenção, dedicação e empatia, buscando
+              compreender cada paciente de forma individualizada para oferecer o tratamento
+              mais adequado à sua realidade.
+            </p>
+
+            <div class="aut-creds" aria-label="Registro profissional">
+              <span class="cred"><span class="cred-dot" aria-hidden="true"></span>CRM 24359-SC</span>
+              <span class="cred"><span class="cred-dot" aria-hidden="true"></span>RQE 16629</span>
+              <span class="cred"><span class="cred-dot" aria-hidden="true"></span>Especialista CBO</span>
+              <span class="cred"><span class="cred-dot" aria-hidden="true"></span>Residência UFPR</span>
+              <span class="cred"><span class="cred-dot" aria-hidden="true"></span>Especialização HC-POA</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════ CTA FINAL ════════════ -->
+    <section class="sec--cta" id="agendar" aria-labelledby="cta-h2">
+
+      <!-- Olho decorativo no canto -->
+      <svg class="cta-eye-bg" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M18,160 C80,52 192,10 300,10 C408,10 520,52 582,160 C520,268 408,310 300,310 C192,310 80,268 18,160 Z"
+              fill="rgba(255,255,255,.04)" stroke="rgba(61,174,187,.2)" stroke-width="1.5"/>
+        <path d="M18,160 C80,52 192,10 300,10 C408,10 520,52 582,160"
+              fill="none" stroke="rgba(61,174,187,.35)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="300" cy="160" r="104" fill="none" stroke="rgba(61,174,187,.1)"  stroke-width="1.5"/>
+        <circle cx="300" cy="160" r="78"  fill="none" stroke="rgba(61,174,187,.15)" stroke-width="2"/>
+        <circle cx="300" cy="160" r="52"  fill="rgba(61,174,187,.06)" stroke="rgba(61,174,187,.2)" stroke-width="2"/>
+        <circle cx="300" cy="160" r="28"  fill="rgba(255,255,255,.08)"/>
+        <circle cx="300" cy="160" r="12"  fill="rgba(255,255,255,.12)"/>
+      </svg>
+
+      <div class="wrap">
+        <div class="cta-inner fi">
+          <h2 class="cta-h" id="cta-h2">
+            Dê o Primeiro Passo para Recuperar seu Conforto Visual
+          </h2>
+          <p class="cta-sub">
+            Agende sua consulta e receba uma avaliação oftalmológica dedicada ao seu caso.
+            Nossa equipe está pronta para encontrar o melhor horário para você.
+          </p>
+          <div class="cta-block">
+            <a href="https://wa.me/5548996197114?text=Olá%2C%20quero%20agendar%20uma%20consulta%20para%20Olho%20Seco%20com%20a%20Dra.%20Gabriela."
+               class="btn btn--iris btn--lg" target="_blank" rel="noopener noreferrer"
+               aria-label="Falar com a secretaria no WhatsApp">
+              <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Falar com a Secretaria no WhatsApp
+            </a>
+            <!--
+              INFORMAÇÃO PENDENTE: horário de atendimento da secretaria.
+              Exemplo: "Atendimento de segunda a sexta, das 8h às 18h"
+            -->
+            <div class="horario-cta" style="margin-top:4px;">
+              <button class="horario-toggle" data-target="horario-cta" aria-expanded="false">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                Ver horários de atendimento
+              </button>
+              <div class="horario-lista" id="horario-cta" aria-hidden="true">
+                <table>
+                  <tr><td>Seg. a qui.&nbsp;</td><td>8h–12h / 13h30–17h55</td></tr>
+                  <tr><td>Sexta-feira&nbsp;</td><td>8h–12h / 13h30–17h30</td></tr>
+                  <tr><td>Sábado&nbsp;</td><td class="fechado">Fechado</td></tr>
+                  <tr><td>Domingo&nbsp;</td><td class="fechado">Fechado</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════ RODAPÉ ════════════ -->
+  <footer class="rodape" role="contentinfo">
+    <div class="wrap">
+
+      <div class="rod-grid">
+
+        <div>
+          <div class="rod-logo">
+            <img src="LOGO.png" alt="Logotipo Dra. Gabriela Zambon" width="200" height="54" loading="lazy" />
+          </div>
+          <p class="rod-tagline">
+            Oftalmologia especializada em Olho Seco e Cirurgia Refrativa.<br />
+            Atendimento humanizado e individualizado em Criciúma, SC.<br />
+            Especialista em Oftalmologia pelo Conselho Brasileiro de Oftalmologia.
+          </p>
+        </div>
+
+        <div>
+          <p class="rod-col-h">Consultório</p>
+          <!--
+            INFORMAÇÃO PENDENTE: endereço completo do consultório
+            (logradouro, número, complemento, bairro, CEP, Criciúma/SC).
+          -->
+          <address class="rod-txt">
+            R. Cel. Pedro Benedet, 333<br />
+            Sala 1707, Centro<br />
+            Criciúma, SC, 88801-250<br /><br />
+            <a href="tel:+554834436514" style="color:inherit;">(48) 3443-6514</a>
+          </address>
+
+          <div style="margin-top:20px;">
+            <button class="horario-toggle" data-target="horario-rodape" aria-expanded="false">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              Ver horários de atendimento
+            </button>
+            <div class="horario-lista" id="horario-rodape" aria-hidden="true">
+              <table>
+                <tr><td>Seg. a qui.&nbsp;</td><td>8h–12h / 13h30–17h55</td></tr>
+                <tr><td>Sexta-feira&nbsp;</td><td>8h–12h / 13h30–17h30</td></tr>
+                <tr><td>Sábado&nbsp;</td><td class="fechado">Fechado</td></tr>
+                <tr><td>Domingo&nbsp;</td><td class="fechado">Fechado</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="rod-cta-wrap">
+            <a href="https://wa.me/5548996197114?text=Olá%2C%20gostaria%20de%20informações%20sobre%20consulta%20para%20Olho%20Seco."
+               class="btn btn--ghost" target="_blank" rel="noopener noreferrer"
+               aria-label="WhatsApp do consultório"
+               style="padding:10px 20px; font-size:.82rem; margin-top:14px;">
+              <svg style="width:16px;height:16px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="rod-col-h">Registro Profissional</p>
+          <p class="rod-cred">
+            Dra. Gabriela Zambon<br />
+            <span>Médica Oftalmologista</span><br />
+            CRM 24359-SC<br />
+            RQE 16629
+          </p>
+        </div>
+
+      </div>
+
+      <div class="rod-div"></div>
+
+      <div class="rod-bottom">
+        <p class="rod-disc">
+          As informações contidas nesta página têm caráter educativo e não substituem a consulta médica.
+          Cada caso é único e o tratamento adequado deve ser determinado pelo médico após avaliação
+          individualizada. Publicidade médica em conformidade com a Resolução CFM 2.336/2023.
+        </p>
+        <p class="rod-copy">&copy; <span id="ano"></span> Dra. Gabriela Zambon</p>
+        <p class="rod-copy">Desenvolvido por agência //<a href="https://femo.com.br" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">FEMO</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ════════════ BOTÃO FLUTUANTE WHATSAPP ════════════ -->
+  <a href="https://wa.me/5548996197114?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20para%20Olho%20Seco%20com%20a%20Dra.%20Gabriela."
+     class="wa-float" target="_blank" rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Header shadow on scroll
+    (function(){
+      var h = document.getElementById('site-header');
+      window.addEventListener('scroll', function(){ h.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    })();
+
+    // Fade-in via IntersectionObserver
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.fi').forEach(function(el){ el.classList.add('on'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fi').forEach(function(el){ io.observe(el); });
+    })();
+
+    // Botão de som — alterna mute no mux-player sem reiniciar o vídeo
+    (function(){
+      var btn    = document.getElementById('btn-som');
+      var ico    = document.getElementById('btn-som-ico');
+      var txt    = document.getElementById('btn-som-txt');
+      var player = document.getElementById('mux-player');
+      if (!btn || !player) return;
+      var muted = true;
+
+      var ICON_MUTED = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
+                     + '<line x1="23" y1="9" x2="17" y2="15"/>'
+                     + '<line x1="17" y1="9" x2="23" y2="15"/>';
+      var ICON_ON    = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
+                     + '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'
+                     + '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+
+      btn.addEventListener('click', function(){
+        muted = !muted;
+        player.muted = muted;
+        ico.innerHTML          = muted ? ICON_MUTED : ICON_ON;
+        txt.textContent        = muted ? 'Ativar som' : 'Som ativado';
+        btn.style.borderColor  = muted ? 'rgba(61,174,187,.5)' : 'rgba(61,174,187,1)';
+      });
+      btn.addEventListener('mouseenter', function(){ btn.style.background='rgba(13,58,77,.95)'; });
+      btn.addEventListener('mouseleave', function(){ btn.style.background='rgba(9,41,58,.82)'; });
+    })();
+
+    // Animação de piscar — alterna entre OLHO.png e OLHOPISCA.png (ambos os lados em sincronia)
+    (function(){
+      var eyeR = document.getElementById('hero-eye-img');
+      var eyeL = document.getElementById('hero-eye-img-left');
+      var eyes = [eyeR, eyeL].filter(Boolean);
+      if (!eyes.length) return;
+      var imgOpen   = 'OLHO.png';
+      var imgClosed = 'OLHOPISCA.png';
+      (new Image()).src = imgClosed;
+      function blink() {
+        eyes.forEach(function(e){ e.src = imgClosed; });
+        setTimeout(function() {
+          eyes.forEach(function(e){ e.src = imgOpen; });
+          setTimeout(blink, 3500 + Math.random() * 500);
+        }, 150);
+      }
+      setTimeout(blink, 3500 + Math.random() * 500);
+    })();
+
+    // Carrossel de sintomas — loop infinito com clones
+    (function(){
+      var viewport  = document.querySelector('.sint-viewport');
+      var track     = document.querySelector('.sint-track');
+      var dotsWrap  = document.querySelector('.sint-dots');
+      var arrowPrev = document.querySelector('.sint-arrow--prev');
+      var arrowNext = document.querySelector('.sint-arrow--next');
+      if (!track || !viewport) return;
+
+      var CLONE = 3;   // clones em cada extremidade
+      var INTERVAL = 3500;
+
+      // Cards originais
+      var origCards = Array.from(track.children);
+      var N = origCards.length; // 8
+
+      // Clonar os últimos CLONE antes do início e os primeiros CLONE depois do fim
+      origCards.slice(N - CLONE).forEach(function(c) {
+        track.insertBefore(c.cloneNode(true), track.firstChild);
+      });
+      origCards.slice(0, CLONE).forEach(function(c) {
+        track.appendChild(c.cloneNode(true));
+      });
+
+      var TOTAL = CLONE + N + CLONE; // 14
+      var pos = CLONE;               // começa mostrando o card real 0
+      var realIdx = 0;               // índice no array original (para dots)
+      var locked = false;
+      var timer = null;
+
+      function nv() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 640)  return 2;
+        return 1;
+      }
+
+      function cardPx() { return viewport.offsetWidth / nv(); }
+
+      function setLayout() {
+        var cp = cardPx();
+        track.style.width = (cp * TOTAL) + 'px';
+        Array.from(track.children).forEach(function(c) { c.style.width = cp + 'px'; });
+      }
+
+      function render(animate) {
+        track.style.transition = animate ? 'transform 0.5s ease' : 'none';
+        track.style.transform  = 'translateX(' + (-(pos * cardPx())) + 'px)';
+      }
+
+      function updateDots() {
+        if (!dotsWrap) return;
+        dotsWrap.querySelectorAll('.sint-dot-btn').forEach(function(d, i) {
+          d.classList.toggle('active', i === realIdx);
+        });
+      }
+
+      function advance(dir) {
+        if (locked) return;
+        pos     += dir;
+        realIdx  = ((realIdx + dir) % N + N) % N;
+        render(true);
+        updateDots();
+        // Após transição, se entrou na zona de clone, salta sem animação
+        if (pos >= CLONE + N) {
+          locked = true;
+          setTimeout(function() {
+            pos = CLONE + (pos - (CLONE + N));
+            render(false);
+            locked = false;
+          }, 510);
+        } else if (pos < CLONE) {
+          locked = true;
+          setTimeout(function() {
+            pos = CLONE + N - (CLONE - pos);
+            render(false);
+            locked = false;
+          }, 510);
+        }
+      }
+
+      function goToReal(idx) {
+        if (locked) return;
+        pos     = CLONE + idx;
+        realIdx = idx;
+        render(true);
+        updateDots();
+      }
+
+      function startAuto() { timer = setInterval(function(){ advance(1); }, INTERVAL); }
+      function stopAuto()  { clearInterval(timer); }
+
+      // Construir dots
+      if (dotsWrap) {
+        for (var i = 0; i < N; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'sint-dot-btn';
+          dot.setAttribute('aria-label', 'Sintoma ' + (i + 1));
+          dot.setAttribute('role', 'tab');
+          (function(idx){ dot.addEventListener('click', function(){ stopAuto(); goToReal(idx); startAuto(); }); })(i);
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      if (arrowPrev) arrowPrev.addEventListener('click', function(){ stopAuto(); advance(-1); startAuto(); });
+      if (arrowNext) arrowNext.addEventListener('click', function(){ stopAuto(); advance(1);  startAuto(); });
+
+      // Pausa no hover (desktop)
+      viewport.addEventListener('mouseenter', stopAuto);
+      viewport.addEventListener('mouseleave', startAuto);
+
+      // Swipe touch (mobile)
+      var tsX = 0;
+      viewport.addEventListener('touchstart', function(e){ tsX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+      viewport.addEventListener('touchend',   function(e){
+        var diff = tsX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) advance(diff > 0 ? 1 : -1);
+        startAuto();
+      }, { passive: true });
+
+      // Redimensionamento
+      window.addEventListener('resize', function(){ setLayout(); render(false); });
+
+      // Inicializar
+      setLayout();
+      render(false);
+      updateDots();
+      startAuto();
+    })();
+
+    /*
+      PIXEL GOOGLE ADS — inserir aqui o gtag.js e o evento de conversão.
+      Listener já pronto para disparar ao clicar em qualquer CTA:
+
+      document.querySelectorAll('.btn, .hd-cta, .wa-float').forEach(function(b){
+        b.addEventListener('click', function(){
+          gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XXXX' });
+          // INFORMAÇÃO PENDENTE: ID de conversão do Google Ads
+        });
+      });
+    */
+
+    // Acordeão de horários
+    document.querySelectorAll('.horario-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var lista = document.getElementById(btn.dataset.target);
+        if (!lista) return;
+        var aberto = lista.classList.toggle('aberto');
+        btn.classList.toggle('aberto', aberto);
+        btn.setAttribute('aria-expanded', aberto);
+        lista.setAttribute('aria-hidden', !aberto);
+      });
+    });
+
+    // Banner de cookies — aguarda DOM completo pois o HTML do banner vem após este script
+    document.addEventListener('DOMContentLoaded', function(){
+      var banner = document.getElementById('cookie-banner');
+      var modal  = document.getElementById('modal-privacidade');
+      if (!banner) return;
+      if (localStorage.getItem('cookies-ok')) { banner.classList.add('oculto'); return; }
+      document.getElementById('cookie-ok').addEventListener('click', function(){
+        localStorage.setItem('cookies-ok', '1');
+        banner.classList.add('oculto');
+      });
+      document.getElementById('cookie-rec').addEventListener('click', function(){
+        banner.classList.add('oculto');
+      });
+      document.getElementById('link-privacidade').addEventListener('click', function(e){
+        e.preventDefault();
+        if (modal) modal.classList.remove('oculto');
+      });
+      if (modal) {
+        document.getElementById('modal-fechar').addEventListener('click', function(){
+          modal.classList.add('oculto');
+        });
+        modal.addEventListener('click', function(e){
+          if (e.target === modal) modal.classList.add('oculto');
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ════════════ BANNER DE COOKIES ════════════ -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Aviso de cookies">
+    <p class="cookie-txt">
+      Utilizamos cookies essenciais para o funcionamento do site. Ao continuar navegando,
+      você concorda com nossa
+      <a id="link-privacidade" href="#" role="button">Política de Privacidade</a>.
+    </p>
+    <div class="cookie-acoes">
+      <button class="cookie-btn cookie-btn--rec" id="cookie-rec">Recusar</button>
+      <button class="cookie-btn cookie-btn--ok"  id="cookie-ok">Aceitar</button>
+    </div>
+  </div>
+
+
+  <!-- ════════════ MODAL DE PRIVACIDADE ════════════ -->
+  <div class="modal-overlay oculto" id="modal-privacidade" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-fechar" aria-label="Fechar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h2 class="modal-h" id="modal-titulo">Política de Privacidade e Cookies</h2>
+      <p class="modal-sub">Última atualização: junho de 2025</p>
+
+      <div class="modal-body">
+        <h3>1. Quem somos</h3>
+        <p>
+          Este site pertence ao consultório da <strong>Dra. Gabriela Zambon</strong>,
+          oftalmologista com CRM 24359-SC e RQE 16629, localizado na R. Cel. Pedro Benedet, 333,
+          sala 1707, Centro, Criciúma – SC.
+        </p>
+
+        <div class="modal-div"></div>
+
+        <h3>2. Dados coletados</h3>
+        <p>Este site é uma página informativa. Não coletamos dados pessoais diretamente.</p>
+        <p>Ao clicar nos botões de WhatsApp, você será direcionado ao aplicativo WhatsApp,
+        que possui sua própria política de privacidade. O número de telefone utilizado pode
+        ser registrado pelo aplicativo conforme seus termos de uso.</p>
+
+        <div class="modal-div"></div>
+
+        <h3>3. Cookies utilizados</h3>
+        <p>Utilizamos apenas cookies essenciais para o funcionamento básico do site:</p>
+        <ul>
+          <li><strong>cookies-ok</strong> — armazena sua preferência de consentimento de cookies (localStorage).</li>
+        </ul>
+        <p>Não utilizamos cookies de rastreamento, publicidade comportamental ou analíticos de terceiros, salvo se indicado em futuras atualizações.</p>
+
+        <div class="modal-div"></div>
+
+        <h3>4. Finalidade das informações</h3>
+        <p>As informações contidas neste site têm caráter exclusivamente educativo e de apresentação
+        de serviços médicos. Não substituem a consulta médica individualizada.</p>
+
+        <div class="modal-div"></div>
+
+        <h3>5. Seus direitos (LGPD)</h3>
+        <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018), você tem direito a:</p>
+        <ul>
+          <li>Confirmar a existência de tratamento de dados;</li>
+          <li>Solicitar acesso, correção ou exclusão de dados;</li>
+          <li>Revogar consentimento a qualquer momento.</li>
+        </ul>
+        <p>Para exercer seus direitos, entre em contato pelo telefone <strong>(48) 3443-6514</strong>.</p>
+
+        <div class="modal-div"></div>
+
+        <h3>6. Publicidade médica</h3>
+        <p>
+          Este site está em conformidade com a <strong>Resolução CFM 2.336/2023</strong>,
+          que regulamenta a publicidade médica no Brasil.
+        </p>
+
+        <div class="modal-div"></div>
+
+        <h3>7. Contato</h3>
+        <p>
+          Dra. Gabriela Zambon, Oftalmologista<br />
+          R. Cel. Pedro Benedet, 333, sala 1707, Centro, Criciúma – SC<br />
+          Telefone: (48) 3443-6514
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
