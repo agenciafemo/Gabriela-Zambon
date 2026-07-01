@@ -193,25 +193,26 @@
       padding: 88px 0 96px;
     }
 
-    /* Olho grande — lado direito */
+    /* Olho grande — lado direito (maior, diagonal para baixo) */
     .hero-eye {
       position: absolute;
-      right: -60px; top: 50%;
-      transform: translateY(-50%);
-      width: 580px; height: auto;
+      right: -120px; top: 62%;
+      transform: translateY(-50%) rotate(-22deg);
+      width: 720px; height: auto;
       pointer-events: none;
-      opacity: .55;
+      opacity: .38;
     }
-    @media (max-width: 900px) { .hero-eye { width: 380px; right: -160px; opacity: .28; } }
+    @media (max-width: 900px) { .hero-eye { width: 440px; right: -180px; opacity: .2; } }
     @media (max-width: 560px) { .hero-eye { display: none; } }
 
-    /* Olho grande — lado esquerdo (espelhado) */
+    /* Olho grande — lado esquerdo (maior, diagonal para cima, espelhado) */
     .hero-eye--left {
       right: auto;
-      left: -60px;
-      transform: translateY(-50%) scaleX(-1);
+      left: -120px; top: 38%;
+      transform: translateY(-50%) scaleX(-1) rotate(-22deg);
+      opacity: .3;
     }
-    @media (max-width: 900px) { .hero-eye--left { left: -160px; } }
+    @media (max-width: 900px) { .hero-eye--left { left: -180px; opacity: .15; } }
     @media (max-width: 560px) { .hero-eye--left { display: none; } }
 
     .hero-content {
@@ -749,8 +750,7 @@
           </h1>
 
           <p class="hero-sub fi d2">
-            Uma consulta dedicada a investigar a real origem do seu desconforto ocular,
-            não apenas prescrever colírios.
+            Uma consulta dedicada a investigar a origem do seu desconforto ocular.
           </p>
 
           <!-- Vídeo -->
@@ -812,7 +812,7 @@
           </span>
 
           <h2 class="sec-h" id="dor-h2">
-            O uso constante de colírios lubrificantes já se tornou um hábito que não resolve mais?
+            O uso constante de colírios lubrificantes já se tornou um hábito e não resolve mais?
           </h2>
           <p>
             Quem convive com a sensação de areia nos olhos, queimação ao final do dia ou
@@ -822,11 +822,7 @@
             O olho seco é uma disfunção que exige diagnóstico médico.
           </p>
           <p>
-            O erro mais comum é acreditar que se trata de um incômodo passageiro que se resolve
-            comprando qualquer lágrima artificial na farmácia.
-          </p>
-          <p>
-            Se a visão está cobrando um preço alto todos os dias, o caminho não é mascarar os
+            O erro mais comum é acreditar que se trata de um incômodo passageiro, o caminho não é mascarar os
             sintomas: é investigar o que está acontecendo com a sua saúde ocular.
           </p>
         </div>
@@ -922,7 +918,7 @@
             Como funciona
           </span>
           <h2 class="sec-h" id="abord-h2">
-            Um Olhar Atento e Protocolos Sob Medida para Você.
+            Um Olhar Atento e Atendimento Sob Medida para Você.
           </h2>
           <p class="sec-lead">
             Cada caso de olho seco tem uma origem diferente. A consulta vai muito além do
@@ -956,9 +952,8 @@
             </div>
             <h3 class="b-card-h">Protocolos Personalizados</h3>
             <p class="b-card-p">
-              Sem soluções genéricas. O direcionamento terapêutico é desenhado exclusivamente
-              para o seu caso, com foco em alívio duradouro, não apenas no alívio
-              momentâneo dos sintomas.
+              O direcionamento terapêutico é desenhado exclusivamente
+              para o seu caso, com foco em alívio duradouro.
             </p>
           </div>
 
@@ -1068,7 +1063,6 @@
             Dê o Primeiro Passo para Recuperar seu Conforto Visual
           </h2>
           <p class="cta-sub">
-            Agende sua consulta e receba uma avaliação oftalmológica dedicada ao seu caso.
             Nossa equipe está pronta para encontrar o melhor horário para você.
           </p>
           <div class="cta-block">
@@ -1115,7 +1109,7 @@
             <img src="LOGO.png" alt="Logotipo Dra. Gabriela Zambon" width="200" height="54" loading="lazy" />
           </div>
           <p class="rod-tagline">
-            Oftalmologia especializada em Olho Seco e Cirurgia Refrativa.<br />
+            Oftalmologia em Olho Seco e Cirurgia Refrativa.<br />
             Atendimento humanizado e individualizado em Criciúma, SC.<br />
             Especialista em Oftalmologia pelo Conselho Brasileiro de Oftalmologia.
           </p>
