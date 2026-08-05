@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://olhoseco.dragabrielazambon.com.br/sitemap.xml

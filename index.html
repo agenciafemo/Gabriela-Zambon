@@ -14,8 +14,11 @@
   <meta name="theme-color"   content="#3DAEBB" />
   <title>Olho Seco em Criciúma | Dra. Gabriela Zambon, Oftalmologista · CRM 24359-SC</title>
 
+  <link rel="canonical" href="https://olhoseco.dragabrielazambon.com.br/" />
+
   <!-- Open Graph / WhatsApp / redes sociais -->
   <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://olhoseco.dragabrielazambon.com.br/" />
   <meta property="og:title"       content="Olho Seco em Criciúma | Dra. Gabriela Zambon, Oftalmologista" />
   <meta property="og:description" content="Especialista em Olho Seco em Criciúma/SC. Diagnóstico individualizado para ardência, olhos vermelhos e visão embaçada. CRM 24359-SC." />
   <meta property="og:image"       content="https://image.mux.com/tGAML9LVNN01601QkPUi2KtfMEd3dH6QvrQhLkHC6tSNQ/thumbnail.png?width=1280&height=720&time=16.5&fit_mode=preserve" />
@@ -348,6 +351,24 @@
     .vb-texts { position: relative; z-index: 2; text-align: center; }
     .vb-title { font-family: var(--f-h); font-size: .9rem; font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .03em; }
     .vb-sub   { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 4px; }
+
+    /* Mux Player — mantém apenas o botão de play/pause nativo */
+    #mux-player {
+      --media-object-fit: cover;
+      --title-display: none;
+      --time-display: none;
+      --duration-display: none;
+      --time-range: none;
+      --volume-range: none;
+      --mute-button: none;
+      --captions-button: none;
+      --airplay-button: none;
+      --pip-button: none;
+      --cast-button: none;
+      --playback-rate-button: none;
+      --rendition-selectmenu: none;
+      --fullscreen-button: none;
+    }
 
     /* CTA do hero */
     .hero-cta-block { display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -804,9 +825,9 @@
     <section class="hero" id="hero" aria-labelledby="hero-h1">
 
       <!-- OLHO DECORATIVO — lado esquerdo (espelhado, pisca em sincronia) -->
-      <img id="hero-eye-img-left" class="hero-eye hero-eye--left" src="OLHO.png" alt="" aria-hidden="true" />
+      <img id="hero-eye-img-left" class="hero-eye hero-eye--left" src="OLHO.png" width="700" height="875" alt="" aria-hidden="true" />
       <!-- OLHO DECORATIVO — lado direito (pisca via JS com imagens reais) -->
-      <img id="hero-eye-img" class="hero-eye" src="OLHO.png" alt="" aria-hidden="true" />
+      <img id="hero-eye-img" class="hero-eye" src="OLHO.png" width="700" height="875" alt="" aria-hidden="true" />
 
       <div class="wrap">
         <div class="hero-content">
@@ -852,6 +873,15 @@
                 </svg>
                 <span id="btn-som-txt">Ativar som</span>
               </button>
+              <!-- Botão de velocidade -->
+              <button id="btn-velocidade" aria-label="Alterar velocidade de reprodução"
+                style="position:absolute; bottom:16px; left:16px; z-index:10;
+                       display:flex; align-items:center; justify-content:center;
+                       background:rgba(9,41,58,.82); backdrop-filter:blur(6px);
+                       color:#fff; border:1px solid rgba(61,174,187,.5);
+                       border-radius:50px; padding:9px 16px; min-width:34px;
+                       font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
+                       cursor:pointer; transition:background .3s, border-color .3s;">1.0x</button>
             </div>
           </div>
 
@@ -1067,6 +1097,7 @@
           <!-- Foto da Dra. Gabriela Zambon -->
           <div class="fi">
             <img src="ZAMBON.JPG" alt="Dra. Gabriela Zambon, oftalmologista especialista em olho seco em Criciúma"
+                 width="900" height="600" loading="lazy" decoding="async"
                  style="border-radius:20px; width:100%; max-width:360px; object-fit:cover; display:block;" />
           </div>
 
@@ -1233,7 +1264,8 @@
             Dra. Gabriela Zambon<br />
             <span>Médica Oftalmologista</span><br />
             CRM 24359-SC<br />
-            RQE 16629
+            RQE 16629<br />
+            <a href="https://dragabrielazambon.com.br/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">Site oficial</a>
           </p>
         </div>
 
@@ -1306,6 +1338,24 @@
         ico.innerHTML          = muted ? ICON_MUTED : ICON_ON;
         txt.textContent        = muted ? 'Ativar som' : 'Som ativado';
         btn.style.borderColor  = muted ? 'rgba(61,174,187,.5)' : 'rgba(61,174,187,1)';
+      });
+      btn.addEventListener('mouseenter', function(){ btn.style.background='rgba(13,58,77,.95)'; });
+      btn.addEventListener('mouseleave', function(){ btn.style.background='rgba(9,41,58,.82)'; });
+    })();
+
+    // Botão de velocidade — cicla 1.0x / 1.5x / 2.0x
+    (function(){
+      var btn    = document.getElementById('btn-velocidade');
+      var player = document.getElementById('mux-player');
+      if (!btn || !player) return;
+      var speeds = [1, 1.5, 2];
+      var speedIndex = 0;
+
+      btn.addEventListener('click', function(){
+        speedIndex = (speedIndex + 1) % speeds.length;
+        var rate = speeds[speedIndex];
+        player.playbackRate = rate;
+        btn.textContent = rate.toFixed(1) + 'x';
       });
       btn.addEventListener('mouseenter', function(){ btn.style.background='rgba(13,58,77,.95)'; });
       btn.addEventListener('mouseleave', function(){ btn.style.background='rgba(9,41,58,.82)'; });
