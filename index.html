@@ -296,15 +296,33 @@
     }
 
     .hero-super {
+      position: relative; overflow: hidden;
       display: inline-flex; align-items: center;
-      font-family: var(--f-h); font-size: clamp(.82rem, 1.7vw, .94rem);
+      font-family: var(--f-h); font-size: clamp(.7rem, 1.4vw, .8rem);
       font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
       color: var(--teal-mid);
       background: rgba(61,174,187,.12);
       border: 1px solid rgba(61,174,187,.35);
       border-radius: 999px;
-      padding: 7px 18px;
+      padding: 6px 16px;
       margin-bottom: 18px;
+    }
+    /* Brilho animado atravessando o selo */
+    .hero-super::after {
+      content: '';
+      position: absolute; top: 0; left: -60%;
+      width: 45%; height: 100%;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: skewX(-20deg);
+      animation: hero-super-shine 3.2s ease-in-out infinite;
+    }
+    @keyframes hero-super-shine {
+      0%   { left: -60%; }
+      35%  { left: 130%; }
+      100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-super::after { animation: none; }
     }
     .hero-h1 {
       font-family: var(--f-h);
