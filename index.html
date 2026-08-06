@@ -268,6 +268,13 @@
       padding: 88px 0 96px;
     }
 
+    .hero-wave {
+      position: absolute; left: 0; right: 0; bottom: -1px;
+      line-height: 0; z-index: 2; pointer-events: none;
+    }
+    .hero-wave svg { display: block; width: 100%; height: 70px; }
+    @media (max-width: 640px) { .hero-wave svg { height: 40px; } }
+
     /* Olho grande — lado direito (maior, diagonal para baixo) */
     .hero-eye {
       position: absolute;
@@ -378,7 +385,7 @@
     .vb-sub   { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 4px; }
 
     /* Mux Player — mantém apenas o botão de play/pause nativo */
-    #mux-player {
+    #hero-video {
       --media-object-fit: cover;
       --title-display: none;
       --time-display: none;
@@ -394,6 +401,22 @@
       --rendition-selectmenu: none;
       --fullscreen-button: none;
     }
+    .video-ctrl {
+      position: absolute; z-index: 5; top: 12px;
+      display: flex; align-items: center; justify-content: center;
+      height: 34px; padding: 0 10px; min-width: 34px;
+      background: rgba(15,64,85,.55); backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,.18); border-radius: 999px;
+      color: #fff; cursor: pointer;
+      transition: background var(--t), border-color var(--t);
+    }
+    .video-ctrl:hover { background: rgba(15,64,85,.8); border-color: rgba(255,255,255,.35); }
+    .video-ctrl--mute  { right: 12px; padding: 0; }
+    .video-ctrl--speed { right: 54px; font-family: var(--f-h); font-size: .78rem; font-weight: 600; letter-spacing: .02em; }
+    .video-ctrl svg { width: 18px; height: 18px; }
+    .video-ctrl--mute .ico-mute { display: none; }
+    .video-ctrl--mute[aria-pressed="true"] .ico-unmute { display: none; }
+    .video-ctrl--mute[aria-pressed="true"] .ico-mute   { display: block; }
 
     /* CTA do hero */
     .hero-cta-block { display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -873,39 +896,20 @@
 
           <!-- Vídeo -->
           <div class="video-wrap fi d2">
-            <div style="position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:18px; background:#000;">
+            <div class="video-box">
               <mux-player
-                id="mux-player"
+                id="hero-video"
                 playback-id="tGAML9LVNN01601QkPUi2KtfMEd3dH6QvrQhLkHC6tSNQ"
                 metadata-video-title="Olho Seco — Dra. Gabriela Zambon"
                 poster="https://image.mux.com/tGAML9LVNN01601QkPUi2KtfMEd3dH6QvrQhLkHC6tSNQ/thumbnail.png?width=1280&height=720&time=16.5&fit_mode=preserve"
                 muted
                 style="position:absolute; top:-48px; left:0; width:100%; height:calc(100% + 96px);"
               ></mux-player>
-              <!-- Botão ativar som -->
-              <button id="btn-som" aria-label="Ativar som do vídeo"
-                style="position:absolute; bottom:16px; right:16px; z-index:10;
-                       display:flex; align-items:center; gap:8px;
-                       background:rgba(9,41,58,.82); backdrop-filter:blur(6px);
-                       color:#fff; border:1px solid rgba(61,174,187,.5);
-                       border-radius:50px; padding:9px 18px;
-                       font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
-                       cursor:pointer; transition:background .3s, border-color .3s;">
-                <svg id="btn-som-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-                </svg>
-                <span id="btn-som-txt">Ativar som</span>
+              <button type="button" id="hero-video-mute" class="video-ctrl video-ctrl--mute" aria-label="Ativar som do vídeo" aria-pressed="true">
+                <svg class="ico-mute" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4 9.91 6.09 12 8.18V4z"/></svg>
+                <svg class="ico-unmute" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
               </button>
-              <!-- Botão de velocidade -->
-              <button id="btn-velocidade" aria-label="Alterar velocidade de reprodução"
-                style="position:absolute; bottom:16px; left:16px; z-index:10;
-                       display:flex; align-items:center; justify-content:center;
-                       background:rgba(9,41,58,.82); backdrop-filter:blur(6px);
-                       color:#fff; border:1px solid rgba(61,174,187,.5);
-                       border-radius:50px; padding:9px 16px; min-width:34px;
-                       font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
-                       cursor:pointer; transition:background .3s, border-color .3s;">1.0x</button>
+              <button type="button" id="hero-video-speed" class="video-ctrl video-ctrl--speed" aria-label="Alterar velocidade de reprodução">1.0x</button>
             </div>
           </div>
 
@@ -920,6 +924,12 @@
           </div>
 
         </div>
+      </div>
+
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,112 1440,48 L1440,110 L0,110 Z" fill="#FFFFFF"/>
+        </svg>
       </div>
     </section>
 
@@ -1121,7 +1131,7 @@
           <!-- Foto da Dra. Gabriela Zambon -->
           <div class="fi">
             <img src="ZAMBON.JPG" alt="Dra. Gabriela Zambon, oftalmologista especialista em olho seco em Criciúma"
-                 width="900" height="600" loading="lazy" decoding="async"
+                 width="900" height="1350" loading="lazy" decoding="async"
                  style="border-radius:20px; width:100%; max-width:360px; object-fit:cover; display:block;" />
           </div>
 
@@ -1340,49 +1350,28 @@
       document.querySelectorAll('.fi').forEach(function(el){ io.observe(el); });
     })();
 
-    // Botão de som — alterna mute no mux-player sem reiniciar o vídeo
+    // Controles customizados do vídeo do hero (mute e velocidade)
     (function(){
-      var btn    = document.getElementById('btn-som');
-      var ico    = document.getElementById('btn-som-ico');
-      var txt    = document.getElementById('btn-som-txt');
-      var player = document.getElementById('mux-player');
-      if (!btn || !player) return;
-      var muted = true;
+      var player   = document.getElementById('hero-video');
+      var muteBtn  = document.getElementById('hero-video-mute');
+      var speedBtn = document.getElementById('hero-video-speed');
+      if (!player || !muteBtn || !speedBtn) return;
 
-      var ICON_MUTED = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
-                     + '<line x1="23" y1="9" x2="17" y2="15"/>'
-                     + '<line x1="17" y1="9" x2="23" y2="15"/>';
-      var ICON_ON    = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
-                     + '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'
-                     + '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
-
-      btn.addEventListener('click', function(){
-        muted = !muted;
-        player.muted = muted;
-        ico.innerHTML          = muted ? ICON_MUTED : ICON_ON;
-        txt.textContent        = muted ? 'Ativar som' : 'Som ativado';
-        btn.style.borderColor  = muted ? 'rgba(61,174,187,.5)' : 'rgba(61,174,187,1)';
-      });
-      btn.addEventListener('mouseenter', function(){ btn.style.background='rgba(13,58,77,.95)'; });
-      btn.addEventListener('mouseleave', function(){ btn.style.background='rgba(9,41,58,.82)'; });
-    })();
-
-    // Botão de velocidade — cicla 1.0x / 1.5x / 2.0x
-    (function(){
-      var btn    = document.getElementById('btn-velocidade');
-      var player = document.getElementById('mux-player');
-      if (!btn || !player) return;
       var speeds = [1, 1.5, 2];
       var speedIndex = 0;
 
-      btn.addEventListener('click', function(){
+      muteBtn.addEventListener('click', function(){
+        player.muted = !player.muted;
+        muteBtn.setAttribute('aria-pressed', player.muted ? 'true' : 'false');
+        muteBtn.setAttribute('aria-label', player.muted ? 'Ativar som do vídeo' : 'Silenciar vídeo');
+      });
+
+      speedBtn.addEventListener('click', function(){
         speedIndex = (speedIndex + 1) % speeds.length;
         var rate = speeds[speedIndex];
         player.playbackRate = rate;
-        btn.textContent = rate.toFixed(1) + 'x';
+        speedBtn.textContent = rate.toFixed(1) + 'x';
       });
-      btn.addEventListener('mouseenter', function(){ btn.style.background='rgba(13,58,77,.95)'; });
-      btn.addEventListener('mouseleave', function(){ btn.style.background='rgba(9,41,58,.82)'; });
     })();
 
     // Animação de piscar — alterna entre OLHO.png e OLHOPISCA.png (ambos os lados em sincronia)
