@@ -580,6 +580,13 @@
     }
     @media (max-width: 768px) { .foto-ph { max-width: 260px; margin: 0 auto; aspect-ratio: 3/4; } }
 
+    .dra-foto {
+      border-radius: 20px; display: block;
+      width: 100%; max-width: 360px;
+      aspect-ratio: 4/5; object-fit: cover; object-position: 50% 18%;
+    }
+    @media (max-width: 768px) { .dra-foto { max-width: 260px; margin: 0 auto; aspect-ratio: 3/4; } }
+
     /* Olho decorativo dentro do placeholder de foto */
     .foto-eye {
       position: absolute; top: 50%; left: 50%;
@@ -1131,8 +1138,8 @@
           <!-- Foto da Dra. Gabriela Zambon -->
           <div class="fi">
             <img src="ZAMBON.JPG" alt="Dra. Gabriela Zambon, oftalmologista especialista em olho seco em Criciúma"
-                 width="900" height="1350" loading="lazy" decoding="async"
-                 style="border-radius:20px; width:100%; max-width:360px; object-fit:cover; display:block;" />
+                 class="dra-foto"
+                 width="900" height="1350" loading="lazy" decoding="async" />
           </div>
 
           <!-- Texto de autoridade -->
