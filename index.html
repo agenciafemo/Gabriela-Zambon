@@ -17,6 +17,19 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NKT3D6HV');</script>
   <!-- End Google Tag Manager -->
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2205436053337067');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2205436053337067&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Dra. Gabriela Zambon, oftalmologista especialista em Olho Seco em Criciúma, SC (CRM 24359-SC). Consulta dedicada ao diagnóstico individualizado de ardência, olhos vermelhos e visão embaçada. Agende pelo WhatsApp." />
@@ -1715,5 +1728,80 @@
     </div>
   </div>
 
+
+  <!-- ════════════════════════════════════════════════
+       RASTREAMENTO — CLIQUES NO WHATSAPP
+       Em cada clique de WhatsApp dispara:
+         1. `whatsapp_click` no dataLayer (disponivel para o GTM)
+         2. `whatsapp_click` no GA4 (analise de comportamento)
+         3. a conversao do Google Ads, direto via gtag
+         4. o evento Contact do Pixel da Meta
+       ════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    var ORIGEM = 'olho-seco';
+
+    /* Conversao do Google Ads — acao "Clique WhatsApp - Olho Seco" */
+    var CONVERSAO = 'AW-717719624/GsjVCMvGpd0cEMiQntYC';
+
+    var SELETOR = 'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]';
+
+    var LOCAIS = {
+      'hero':              'hero',
+      'identificacao-dor': 'secao-dor',
+      'abordagem-medica':  'secao-abordagem',
+      'sobre-a-medica':    'secao-sobre',
+      'agendar':           'cta-final'
+    };
+
+    function localDoClique(el) {
+      if (el.classList.contains('wa-float')) return 'botao-flutuante';
+      if (el.classList.contains('hd-cta'))   return 'cabecalho';
+      var sec = el.closest('section');
+      if (sec && sec.id) return LOCAIS[sec.id] || sec.id;
+      if (el.closest('footer')) return 'rodape';
+      return 'indefinido';
+    }
+
+    window.dataLayer = window.dataLayer || [];
+
+    document.addEventListener('click', function (ev) {
+      var alvo = ev.target;
+      if (!alvo || typeof alvo.closest !== 'function') return;
+
+      var link = alvo.closest(SELETOR);
+      if (!link) return;
+
+      var local = localDoClique(link);
+
+      window.dataLayer.push({
+        event:     'whatsapp_click',
+        wa_origem: ORIGEM,
+        wa_local:  local,
+        wa_url:    link.href
+      });
+
+      if (typeof window.gtag === 'function') {
+        /* GA4 — analise de comportamento */
+        window.gtag('event', 'whatsapp_click', {
+          wa_origem: ORIGEM,
+          wa_local:  local
+        });
+
+        /* Google Ads — conversao */
+        window.gtag('event', 'conversion', {
+          send_to: CONVERSAO
+        });
+      }
+
+        /* Meta — contato */
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Contact', { content_name: ORIGEM, content_category: local });
+        }
+    }, true);
+  })();
+  </script>
 </body>
 </html>
